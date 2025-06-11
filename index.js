@@ -1,10 +1,10 @@
 // Executar com: node gerar-lista.js
 const fs = require("fs");
 
-const pasta = "./logos";
+const pasta = "./Logos";
 const arquivos = fs.readdirSync(pasta)
   .filter(f => f.toLowerCase().endsWith(".png"))
-  .map(f => `"./logos/${f}"`);
+  .map(f => `"./Logos/${f}"`);
 
 const output = `
 <!DOCTYPE html>
