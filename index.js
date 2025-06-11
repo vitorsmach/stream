@@ -21,8 +21,8 @@ const output = `
       height: 100%;
     }
     #slideshow {
-      width: 400px;
-      height: 250px;
+      width: 350px;
+      height: 200px;
       border-radius: 30px;
       background: white;
       display: flex;
