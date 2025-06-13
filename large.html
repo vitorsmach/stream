@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Slideshow de Logos</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+    }
+    #slideshow {
+      width: 450px;
+      height: 300px;
+      border-radius: 30px;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #slideshow img {
+      max-width: 80%;
+      max-height: 80%;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #slideshow img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div id="slideshow"></div>
+
+  <script>
+    const logos = [
+      "./Logos/ACACIA.png",
+      "./Logos/ALVIMAR_COGO.png",
+      "./Logos/ANELISE_FIORIN_Odontologia.png",
+      "./Logos/ANJINHO_TRAVESSO_LOGO_AZUL_PNG.png",
+      "./Logos/BARBEARIA_RODEIO.png",
+      "./Logos/BARRACA_MISSOES.png",
+      "./Logos/BELLA_VITA_ODONTO.png",
+      "./Logos/BRANDAO.png",
+      "./Logos/BRITAGEM_Santiago.png",
+      "./Logos/By_Dardo.png",
+      "./Logos/CENTRO_DE_PINTURAS.png",
+      "./Logos/CES.png",
+      "./Logos/CFC_DIRECAO_SEGURA.png",
+      "./Logos/Corujão.png",
+      "./Logos/DAMIAN_Center_Lar.png",
+      "./Logos/Delas.png",
+      "./Logos/Destak Vidros.png",
+      "./Logos/Dr. João Gabriel.png",
+      "./Logos/Dr_Carlos_DÁvila.png",
+      "./Logos/EBA_Munir.png",
+      "./Logos/ECOLINE.png",
+      "./Logos/Endocardio.png",
+      "./Logos/ESTACAO_DO_CABELO.png",
+      "./Logos/Fank_JOALHERIA.png",
+      "./Logos/Fazenda_Paineiras_GUSTAVO_MADALOZZO.png",
+      "./Logos/FEKSA.png",
+      "./Logos/FUTTURE.png",
+      "./Logos/GOB_Gestao_Atual.png",
+      "./Logos/grupo nicola.png",
+      "./Logos/Grupo_BATISTA.png",
+      "./Logos/Grupo_FELICE.png",
+      "./Logos/GRUPO_J_SOUZA.png",
+      "./Logos/Gráfica Universo.png",
+      "./Logos/HERING.png",
+      "./Logos/IMMUNIZE.png",
+      "./Logos/INSIPIRING_SOLUTIONS_Fabiano_Oliveira.png",
+      "./Logos/IZOLAN.png",
+      "./Logos/JEV_Contabilidade.png",
+      "./Logos/KARINE_MARONES.png",
+      "./Logos/LABORTEST.png",
+      "./Logos/Leather (fabrin).png",
+      "./Logos/Logo_Delas.png",
+      "./Logos/LOGO_ENSINA_MAIS_TURMA_DA_MONICA_Oficial_BRANCA.png",
+      "./Logos/Lopes_Peixoto.png",
+      "./Logos/LUMINA_OTICA.png",
+      "./Logos/MADALOSSO.png",
+      "./Logos/MEDIANEIRA.png",
+      "./Logos/MINNER.png",
+      "./Logos/MULTILOJA.png",
+      "./Logos/Obreiros_FUNDO_Transparente_Obreiros_ARTE_ALTA_DEFINICAO.png",
+      "./Logos/ORTOBOM_Colchoes.png",
+      "./Logos/Otica_Andrade.png",
+      "./Logos/Óptica_GaBen.png",
+      "./Logos/PC_Maquinas.png",
+      "./Logos/PIVOT.png",
+      "./Logos/PORTELA.png",
+      "./Logos/Priscila Machado.png",
+      "./Logos/RADIO_SANTIAGO.png",
+      "./Logos/Raggin_Optica.png",
+      "./Logos/Refino_10_anos.png",
+      "./Logos/Ricardo Lanches.png",
+      "./Logos/RICARDO_SILVEIRA.png",
+      "./Logos/SALUS_Roger_Biasi.png",
+      "./Logos/SICREDI.png",
+      "./Logos/SM_CALCADOS.png",
+      "./Logos/São João Palace Hotel.png",
+      "./Logos/TOKYO_SUSHI.png",
+      "./Logos/TRENTIN MARKETING_LOGO.png",
+      "./Logos/Unicred logo.png",
+      "./Logos/UNIVERSITARIA_SEGUROS.png",
+      "./Logos/VANISE_DIEL_Arquiteta.png",
+      "./Logos/VMB_Barretinho.png",
+      "./Logos/WEKA_Logo_Nova.png",
+      "./Logos/ZATUR_Terraplanagem.png"
+    ];
+
+    const container = document.getElementById("slideshow");
+
+    logos.forEach((src, index) => {
+      const img = document.createElement("img");
+      img.src = src;
+      if (index === 0) img.classList.add("active");
+      container.appendChild(img);
+    });
+
+    let current = 0;
+    setInterval(() => {
+      const imgs = container.querySelectorAll("img");
+      imgs[current].classList.remove("active");
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add("active");
+    }, 3000);
+  </script>
+</body>
+</html>
